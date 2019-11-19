@@ -13,5 +13,16 @@ namespace AuctionPlatform.Views
         {
 
         }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+            string url = "Login.aspx?email=" + email.Text + "&password=" + password.Text;
+            Response.Redirect(url);
+        }
     }
 }
