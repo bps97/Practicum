@@ -59,7 +59,7 @@ namespace AuctionPlatform.DAL
         private string InsertSql(User user)
         {
             return String.Format("insert into _user values('{0}','{1}','{2}','{3}')",
-                IDGenerator.GetRandomId(),user.Username,user.Email,user.Pwd);
+                IDGenerator.GetRandomUserId(),user.Username,user.Email,user.Pwd);
             
         }
     }

@@ -35,14 +35,15 @@
         <label for="Pwd">密码</label>
            <asp:RequiredFieldValidator ID="PwdExist" runat="server" ErrorMessage="请输入密码" ControlToValidate="Pwd" CssClass="text-danger"></asp:RequiredFieldValidator>
 
-          <asp:TextBox ID="Pwd" runat="server" CssClass="form-control" placeholder="Password"></asp:TextBox>
+          <asp:TextBox ID="Pwd" TextMode="Password" runat="server" CssClass="form-control" placeholder="Password"></asp:TextBox>
       </div>
   
         <asp:Button ID="RegBtn" runat="server" type="submit" CssClass="btn btn-success btn-block" Text="注册" OnClick="RegBtn_Click" />
-    </form>
     <div class="message">
-      <p>已有账号? <a href="login.aspx">点击登录</a>.</p>
+      <p>已有账号? 
+          <asp:HyperLink runat="server" NavigateUrl="~/Login.aspx">点击登录</asp:HyperLink>.</p>
     </div>
+    </form>
   </div>
 </body>
 </html>

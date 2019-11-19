@@ -23,7 +23,8 @@
       <div class="form-group">
         <label for="Email">邮箱</label>
            <asp:RequiredFieldValidator ID="EmailEmpty" runat="server" ErrorMessage="请输入邮箱" ControlToValidate="Email" CssClass="text-danger"></asp:RequiredFieldValidator>
-          <asp:TextBox ID="Email" runat="server" CssClass="form-control" placeholder="Email" autofocus ></asp:TextBox>
+           <asp:CustomValidator ID="EmailExist" runat="server" ErrorMessage="账户和密码不匹配" ControlToValidate="Email" CssClass="text-danger" OnServerValidate="EmailExist_ServerValidate" ></asp:CustomValidator>
+           <asp:TextBox ID="Email" runat="server" CssClass="form-control" placeholder="Email" autofocus ></asp:TextBox>
       </div>
       <div class="form-group">
         <label for="Pwd">密码</label>
@@ -31,13 +32,13 @@
            <asp:CustomValidator ID="PwdCorrect" runat="server" ErrorMessage="账户和密码不匹配" ControlToValidate="Pwd" CssClass="text-danger" OnServerValidate="PwdCorrect_ServerValidate" ></asp:CustomValidator>
         <a class="pull-right" href=""><asp:Label ID="Label1" runat="server" Text="忘记密码？"></asp:Label></a>
           
-          <asp:TextBox ID="Pwd" type="password" runat="server" CssClass="form-control" placeholder="Password"></asp:TextBox>
+          <asp:TextBox ID="Pwd" TextMode="Password" runat="server" CssClass="form-control" placeholder="Password"></asp:TextBox>
       </div>
   
         <asp:Button ID="LoginBtn" runat="server" type="submit" CssClass="btn btn-success btn-block" Text="登录" OnClick="LoginBtn_Click" />
     </form>
     <div class="message">
-      <p>没有账号? <a href="reg.aspx">点击注册</a>.</p>
+      <p>没有账号? <asp:HyperLink runat="server" NavigateUrl="~/Reg.aspx">点击注册</asp:HyperLink>.</p>
     </div>
   </div>
 </body>

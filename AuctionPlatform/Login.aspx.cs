@@ -9,9 +9,11 @@ namespace AuctionPlatform
     public partial class Login : System.Web.UI.Page
     {
         private UserService userServer = null;
+        private bool Ready = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            userServer = new UserService();
             string StrEmail = Request.QueryString["Email"];
             if (StrEmail != null) Email.Text = StrEmail.ToString();
         }
@@ -20,24 +22,38 @@ namespace AuctionPlatform
 
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
-            string StrEmail = Email.Text;
-            string StrPwd = Pwd.Text;
+            if (Ready)
+            {
+                string StrEmail = Email.Text;
+                string StrPwd = Pwd.Text;
 
-            string url = "Login.aspx?Email=" + StrEmail + "&Password=" + Pwd.Text;
+                string url = "Login.aspx?Email=" + StrEmail + "&Password=" + Pwd.Text;
 
-            Response.Write(userServer.EmailMatchPwd(Email.Text, Pwd.Text));
+                Response.Write(userServer.EmailMatchPwd(Email.Text, Pwd.Text));
 
-            Response.Redirect("HomePage");
+                Response.Redirect("HomePage");
+            }
         }
 
         protected void PwdCorrect_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            userServer = new UserService();
+            
             string result = userServer.EmailMatchPwd(Email.Text, Pwd.Text);
 
-            if (result != "NULL" || result != "Unmatch") args.IsValid = true;
-            args.IsValid = false;
-            
+            Response.Write("\nresult:"+result);
+
+            if (result == "Unmatch" || result == "NULL")
+            {
+                //args.IsValid = false;
+                Ready = false;
+            }
+            else
+            {
+                Ready = true;
+                args.IsValid = true;
+                Response.Write("Ready:" + Ready);
+            }
+            Response.Write("2Ready:" + Ready);
         }
 
         
@@ -45,6 +61,11 @@ namespace AuctionPlatform
         protected void CreatePass_Click(object sender, EventArgs e)
         {
             Response.Redirect("Reg.aspx");
+        }
+
+        protected void EmailExist_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = userServer.EmialExist(Email.Text);
         }
     }
 }

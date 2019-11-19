@@ -8,9 +8,15 @@ namespace AuctionPlatform.Common
     public class IDGenerator
     {
      
-        public static String GetRandomId()
+        public static string GetRandomUserId()
         {
            return DateTime.Now.ToFileTimeUtc().ToString();
         }
-}
+
+        public static string GetRandomArtWorkCode()
+        {
+            return DateTime.Now.ToString("yyyyMMddHHMMssffff");
+        }
+        
+    }
 }

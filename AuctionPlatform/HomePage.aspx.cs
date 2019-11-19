@@ -11,7 +11,19 @@ namespace AuctionPlatform
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+       
+
+        
+
+        protected void Unnamed4_Click(object sender, EventArgs e)
+        {
+            foreach (Control ctl in control.Controls)
+            {
+                Response.Write(ctl);
+            }
         }
     }
 }
