@@ -7,72 +7,90 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace AuctionPlatform.Views {
+namespace AuctionPlatform {
     
     
-    public partial class Login {
+    public partial class Reg {
         
         /// <summary>
-        /// login_form 控件。
+        /// RegForm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm login_form;
+        protected global::System.Web.UI.HtmlControls.HtmlForm RegForm;
         
         /// <summary>
-        /// emailExist 控件。
+        /// EmailEmpty 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailExist;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailEmpty;
         
         /// <summary>
-        /// email 控件。
+        /// EmialExist 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.CustomValidator EmialExist;
         
         /// <summary>
-        /// passwordExist 控件。
+        /// Email 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordExist;
+        protected global::System.Web.UI.WebControls.TextBox Email;
         
         /// <summary>
-        /// Label1 控件。
+        /// NicknameEmpty 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NicknameEmpty;
         
         /// <summary>
-        /// password 控件。
+        /// Nickname 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.TextBox Nickname;
         
         /// <summary>
-        /// loginbtn 控件。
+        /// PwdExist 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loginbtn;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PwdExist;
+        
+        /// <summary>
+        /// Pwd 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Pwd;
+        
+        /// <summary>
+        /// RegBtn 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RegBtn;
     }
 }
