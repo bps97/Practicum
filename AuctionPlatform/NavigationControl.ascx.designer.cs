@@ -10,24 +10,15 @@
 namespace AuctionPlatform {
     
     
-    public partial class Product {
+    public partial class NavigationControl {
         
         /// <summary>
-        /// ArtImg 控件。
+        /// HeadImage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ArtImg;
-        
-        /// <summary>
-        /// ArtInfo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ArtInfo;
+        protected global::System.Web.UI.WebControls.Image HeadImage;
     }
 }

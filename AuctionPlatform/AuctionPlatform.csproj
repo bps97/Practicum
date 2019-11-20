@@ -123,6 +123,7 @@
     <Content Include="Content\img\auction\1572245990591.png" />
     <Content Include="Content\img\auction\1572245990594.jpg" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\layui.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\product.css" />
     <Content Include="Content\Site.css" />
@@ -148,6 +149,7 @@
     <Compile Include="BLL\ArtworkService.cs" />
     <Compile Include="DAL\ArtworkDAO.cs" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="NavigationControl.ascx" />
     <Content Include="Product.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -192,6 +194,13 @@
     </Compile>
     <Compile Include="Model\Bid.cs" />
     <Compile Include="Model\Order.cs" />
+    <Compile Include="NavigationControl.ascx.cs">
+      <DependentUpon>NavigationControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NavigationControl.ascx.designer.cs">
+      <DependentUpon>NavigationControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

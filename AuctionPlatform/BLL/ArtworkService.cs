@@ -10,12 +10,21 @@ namespace AuctionPlatform.BLL
 
     public class ArtworkService
     {
-        private ArtworkDAO ArtworkDao = new ArtworkDAO();
+        private ArtworkDAO DAO = new ArtworkDAO();
 
-        public List<Artwork> GetArtWorkList(int number)
+        public List<Artwork> GetArtworkList(int number)
         {
-            return ArtworkDao.GetArtWorkList(number);
+            return DAO.GetArtworkList(number);
         }
 
+        public List<Artwork> GetArtworkList(int number,int code)
+        {
+            return DAO.GetArtworkList(number,code);
+        }
+
+        public Artwork GetArtwork(string artCode)
+        {
+            return DAO.GetArtwork(artCode);
+        }
     }
 }

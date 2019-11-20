@@ -51,13 +51,13 @@
 
 <div id="j-content" class="w auction-detail ms-controller" ms-controller="YdAuctionDetailCtrl">
   <div class="breadcrumb" style="padding: 0;">
-    <a href="" style="color:#666">艺典网拍</a>
+    <a href="./index.html" style="color:#666">艺典网拍</a>
     <span class="mark">></span>
     <span>杨静荣老师推荐双十一官窑瓷器专场</span>
   </div>
   <div class="primary" id="j-auction-info">
     <div class="p-img fl">
-      <img class="j-lazyload" src="./img/6.jpg" alt="" />
+        <asp:Image ID="ArtImg" ImageUrl="imageurl" runat="server" CssClass="j-lazyload" />
       <div>
         <div id="j-video-play" class="video-play">
           <a href="javascript:;"></a>
@@ -68,12 +68,12 @@
       </div>  
     </div>
     <div class="primary-info" style="height:400px">
-      <h2 class="two-line" style="-webkit-box-orient: vertical;">
-        <span class="info-name">杨静荣老师推荐双十一官窑瓷器专场</span>
-        <div class="self-support-box">
-          <!-- <span class="self-support">自营</span> -->
-        </div>
-      </h2>
+        <h2 class="two-line" style="-webkit-box-orient: vertical;">
+            <asp:Label ID="ArtInfo" Text="杨静荣老师推荐双十一官窑瓷器专场" runat="server" CssClass="info=name"/>
+            <div class="self-support-box">
+                <!-- <span class="self-support">自营</span> -->
+            </div>
+        </h2>
 
       <div class="f-s-20 info">
         <span class="product-num">拍品数 <b>10</b></span>
@@ -131,6 +131,7 @@
     </div>
   </div>
 </div>
+</body>
 <script>
 
 $(document).ready(function () {
@@ -160,5 +161,4 @@ $(".btn").on('click',function () {
 
 })
 </script>
-</body>
 </html>

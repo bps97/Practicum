@@ -28,7 +28,7 @@ namespace AuctionPlatform.DAL
                     };
                 }
             }
-            catch (SqlException e)
+            catch
             {
                 return null;
             }

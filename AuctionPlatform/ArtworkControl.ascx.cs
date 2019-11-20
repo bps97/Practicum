@@ -11,41 +11,42 @@ namespace AuctionPlatform
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        public string TimeDif
+        {
+            get { return EndTimeDif.Text; }
+            set { EndTimeDif.Text = value; }
+        }
+
+        public string Status
+        {
+            get { return ArtStatus.Text; }
+            set { ArtStatus.Text = value; }
         }
 
         public string Info
         {
             get { return ArtworkInfo.Text; }
             set { ArtworkInfo.Text = value; }
-            //set {
-            //    ArtworkInfo = new Label()
-            //    {
-            //        Text = value
-            //    };
-            //}
         }
         public string ImgUrl
         {
             get { return ArtImg.ImageUrl; }
             set { ArtImg.ImageUrl = value; }
-            //set { Image Img = new Image()
-            //{
-            //    ImageUrl = value
-            //};
-            //    ArtImg = Img;
-            //}
         }
+
+        public string Code
+        {
+            get { return ArtCode.Text; }
+            set { ArtCode.Text = value; }
+        }
+
         public string ProviderName
         {
             get { return Provider.Text; }
             set { Provider.Text = value; }
-            //set {
-            //    Provider = new Label()
-            //    {
-            //        Text = value
-            //    };
-            //}
         }
     }
 }
