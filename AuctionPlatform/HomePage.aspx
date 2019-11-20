@@ -1,4 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="AuctionPlatform.HomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="AuctionPlatform.HomePage" %>
+
+<%@ Register src="ArtworkControl.ascx" tagname="ArtworkControl" tagprefix="uc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -12,7 +15,7 @@
     <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/Content/swiper.css"/>
-    <%--<script src="/Scripts/swiper.js"></script>--%>
+    <script src="/Scripts/swiper.js"></script>
     <link href="/Content/index.css" rel="stylesheet" type="text/css"/>
     <link href="/Content/swiper.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -50,15 +53,109 @@
     </div>
 
     <!-- 轮播 -->
-    <div class="swiper-container">
-        
-        <asp:AdRotator ID="AdRotator1" runat="server" AdvertisementFile="~/Content/adxml/ad.xml" />
-    
-    </div>
-    <form id="AdRotator" runat="server">
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="/Content/img/1.jpg" alt=""/></div>
+              <div class="swiper-slide"><img src="/Content/img/2.jpg" alt=""/></div>
+              <div class="swiper-slide"><img src="/Content/img/3.jpg" alt=""/></div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+      
+          <!-- 如果需要导航按钮 -->
+          <div class="swiper-button-prev" style="color: aliceblue;"></div>
+          <div class="swiper-button-next" style="color: aliceblue;"></div>
+      
+          <!-- 如果需要滚动条 -->
+          <div class="swiper-scrollbar"></div>
+      </div>
 
-    <!-- 列表名称栏 -->    <div class="row-container" style="margin-left: 160px;">        <ul>            <li>                <asp:HyperLink  runat="server" class="btn select-active">全部</asp:HyperLink>            </li>            <li>
-                <a href="">正在拍</a>            </li>            <li>                <a href="">预展中</a>            </li>            <li>                <a href="">已结拍</a>            </li>        </ul>    </div>    <!-- 拍品列表 -->    <div class="info" style="margin-left: 145px;">        <ul class="info-container" id="control" runat="server">&nbsp;<li>                <div class="p-img">                    <asp:Image runat="server" ImageUrl="~/Content/img/5.jpg" style="display:inline"/>                </div>                <div class="info-bottom">                    <div class="info-bottom-row">                        <div class="info-right f1">                            <h2 class="one-line">                                <span class="self-support">自营</span>                               <%-- 《中国研究》出版作品专场--%>                                <asp:Label ID="ArtworkName" runat="server" Text="Label">《中国研究》出版作品专场</asp:Label>                            </h2>                            <div class="eyethor-container f-s-16">                                <span class="eye-left"><b>4919</b>人围观</span>                                <span class="thor-right"><b>3</b>次出价</span>                            </div>                            <div class="status-container">                                <span class="status status-red">正在拍</span>                                <span class="red f-s-16">距结束<b></b>时<b></b>分<b></b>秒</span>                            </div>                            <div class="headimg-container">                                <div class="p-img f1">                                    <asp:Image runat="server" ImageUrl="~/Content/img/6.png"/>                                </div>                                <span style="margin-left: 5px;">出品方</span>                                <span class="f-s-14">至.秦</span>                                <div class="no-attention fr"                                     style="margin-left: 200px; text-align: center; background-color: #fff;border-radius: 10px;border: 1px solid #ccc;">                                    <a href="" style="color: black;">+关注</a>                                </div>                            </div>                        </div>                    </div>                </div>            </li>        </ul>    </div>    </form>
+    <!-- 列表名称栏 -->
+    <div class="row-container" style="margin-left: 160px;">
+        <ul>
+            <li>
+                <asp:HyperLink  runat="server" class="btn select-active">全部</asp:HyperLink>
+            </li>
+            <li>
+                <a href="">正在拍</a>
+            </li>
+            <li>
+                <a href="">预展中</a>
+            </li>
+            <li>
+                <a href="">已结拍</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 拍品列表 -->
+    <div class="info" style="margin-left: 145px;">
+        <ul class="info-container" runat ="server" id="control">
+
+            <%--<uc1:ArtworkControl ID="ArtworkControl1" runat="server" />--%>
+
+        </ul>
+    </div>
+
 
 </body>
+
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+  direction: 'horizontal', // 水平切换选项
+  loop: true, // 循环模式选项
+  
+  // 如果需要分页器
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+  },
+
+  //淡入淡出效果
+
+  coverflowEffect: {
+    rotate: 30,
+    slideShadows: true,
+  },
+  
+  // 如果需要前进后退按钮
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  //自动播放
+
+  autoplay: {
+    delay: 3000,
+  },
+
+  //淡入淡出效果
+  fadeEffect: {
+   crossFade: true
+  },
+  
+})
+
+$(function(){
+    $(".row-container li a").on("mouseover",function(){
+        $('.row-container li a').removeClass('select-active')
+        $(this).addClass('select-active')
+    })
+    $(".row-container li a").on("mouseout",function(){
+         $('.row-container li a').removeClass('select-active')
+       
+    })
+
+    $('.container div a').on('mouseover',function () {
+         $('.container div a').removeClass('active')
+         $(this).addClass('active')
+    })
+
+    $('.container div a').on('mouseout',function () {
+       $('.container div a').removeClass('active')
+    })
+
+})
+  </script>
+
 </html>
