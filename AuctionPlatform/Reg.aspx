@@ -39,11 +39,12 @@
       </div>
   
         <asp:Button ID="RegBtn" runat="server" type="submit" CssClass="btn btn-success btn-block" Text="注册" OnClick="RegBtn_Click" />
-    <div class="message">
+    </form>
+    
+        <div class="message">
       <p>已有账号? 
           <asp:HyperLink runat="server" NavigateUrl="~/Login.aspx">点击登录</asp:HyperLink>.</p>
     </div>
-    </form>
   </div>
 </body>
 </html>

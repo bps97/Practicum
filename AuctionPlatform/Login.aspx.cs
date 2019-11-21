@@ -2,6 +2,7 @@
 using AuctionPlatform.DAL;
 using System;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace AuctionPlatform
@@ -13,9 +14,19 @@ namespace AuctionPlatform
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            userServer = new UserService();
-            string StrEmail = Request.QueryString["Email"];
-            if (StrEmail != null) Email.Text = StrEmail.ToString();
+            if(Session["LoginCode"] != null)
+            {
+                userServer = new UserService();
+                if (Page.IsPostBack)
+                {
+                    string StrEmail = Request.QueryString["Email"];
+                    if (StrEmail != null) Email.Text = StrEmail.ToString();
+                }
+            }
+            else
+            {
+                Response.Redirect("HomePage");
+            }
         }
 
 
@@ -29,7 +40,8 @@ namespace AuctionPlatform
 
                 string url = "Login.aspx?Email=" + StrEmail + "&Password=" + Pwd.Text;
 
-                Response.Write(userServer.EmailMatchPwd(Email.Text, Pwd.Text));
+                Session["LoginCode"] = StrEmail;
+                
 
                 Response.Redirect("HomePage");
             }
@@ -40,20 +52,17 @@ namespace AuctionPlatform
             
             string result = userServer.EmailMatchPwd(Email.Text, Pwd.Text);
 
-            Response.Write("\nresult:"+result);
 
             if (result == "Unmatch" || result == "NULL")
             {
-                //args.IsValid = false;
                 Ready = false;
+                args.IsValid = false;
             }
             else
             {
                 Ready = true;
                 args.IsValid = true;
-                Response.Write("Ready:" + Ready);
             }
-            Response.Write("2Ready:" + Ready);
         }
 
         
