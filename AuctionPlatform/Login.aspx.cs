@@ -14,7 +14,7 @@ namespace AuctionPlatform
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["LoginCode"] != null)
+            if(Session["LoginCode"] == null || ((string)Session["LoginCode"]).Equals(""))
             {
                 userServer = new UserService();
                 if (Page.IsPostBack)
@@ -36,9 +36,9 @@ namespace AuctionPlatform
             if (Ready)
             {
                 string StrEmail = Email.Text;
-                string StrPwd = Pwd.Text;
+                // string StrPwd = Pwd.Text;
 
-                string url = "Login.aspx?Email=" + StrEmail + "&Password=" + Pwd.Text;
+                // string url = "Login.aspx?Email=" + StrEmail + "&Password=" + Pwd.Text;
 
                 Session["LoginCode"] = StrEmail;
                 

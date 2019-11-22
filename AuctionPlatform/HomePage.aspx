@@ -14,12 +14,10 @@
     <title>拍卖平台</title>
     <script type="text/javascript" src="/Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="/Scripts/bootstrap.js"></script>
-    <script src="https://www.layuicdn.com/layui/layui.js"></script>
     <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/Content/swiper.css"/>
     <script src="/Scripts/swiper.js"></script>
-    <link href="/Content/layui.css" rel="stylesheet" type="text/css"/>
     <link href="/Content/index.css" rel="stylesheet" type="text/css"/>
     <link href="/Content/swiper.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -132,29 +130,7 @@
             $('.container div a').removeClass('active ')
             $(this).addClass('active')
         })
-
-        $(".btn").on('click', function () {
-            var username = "";
-            if (username == "" || username == undefined) {
-                layui.use(['layer'], function () {
-                    layer.confirm('您需要登录后才能发表话题，是否前往登录？', {
-                        btn: ['确定', '取消'], //按钮
-                        cancel: function (index) {
-                            layer.close(index);
-                        }, title: '发表提示',
-                    }, function () {
-                        window.location.href = "Login";
-                    }, function (index) {
-                        layer.close(index);
-                    });
-                })
-            }
-            var oDiv = $('<a>')
-            oDiv.html(username)
-            $('.login').append(oDiv)
-            $(this).addClass('hide')
-
-        });
+       
     })
 </script>
 </html>

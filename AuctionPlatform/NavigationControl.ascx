@@ -21,8 +21,8 @@
                     <i class="fa fa-search fa-lg" style="margin: 8px 5px;"></i>
                     <input id="input" type="text" placeholder="搜索拍品" style="border: none; outline: none; background-color: #f3f5f9; width: 80%;" />
                 </div>
-                <div class="login" style="margin: 15px 313px;">
-                    <button class="btn" style="border: none; outline: none; background-color: white; font-size: 16px;">登录</button>
+                <div class="login" style="margin:15px 313px;"> 
+                    <asp:HyperLink ID="Login" runat="server" CssClass="btn" Text="登录" style="background-color:#ffffff" role="button"></asp:HyperLink>
                 </div>
             </div>
         </div>

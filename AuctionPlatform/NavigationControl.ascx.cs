@@ -11,7 +11,16 @@ namespace AuctionPlatform
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["LoginCode"] == null || ((string)Session["LoginCode"]).Equals(""))
+            {
+                Login.Text = "登录";
+                Login.NavigateUrl = "Login";
+            }
+            else
+            {
+                Login.Text = "注销";
+                Login.NavigateUrl = "Logout";
+            }
         }
     }
 }

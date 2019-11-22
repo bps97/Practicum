@@ -8,11 +8,11 @@ namespace AuctionPlatform.BLL
 
     public class UserService
     {
-        private UserDAO userDao = new UserDAO();
+        private UserDAO DAO = new UserDAO();
 
         public string EmailMatchPwd(string Email,string Pwd)
         {
-            User user = userDao.GetUserByEmail(Email);
+            User user = DAO.GetUserByEmail(Email);
             if (user != null)
                 return user.Pwd.Equals(Pwd) ? Email : "Unmatch";
             else
@@ -21,14 +21,14 @@ namespace AuctionPlatform.BLL
 
         public bool EmialExist(string email)
         {
-            User user = userDao.GetUserByEmail(email);
+            User user = DAO.GetUserByEmail(email);
             return (user == null) ? false : true;
         }
 
         public bool CreateNewUser(User user)
         {
 
-            return userDao.InsertIntoUser(user);
+            return DAO.InsertIntoUser(user);
 
         }
     }
