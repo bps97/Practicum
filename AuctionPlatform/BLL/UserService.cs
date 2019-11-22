@@ -31,5 +31,10 @@ namespace AuctionPlatform.BLL
             return DAO.InsertIntoUser(user);
 
         }
+
+        public string GetUserID(string email)
+        {
+            return DAO.GetUserID(email);
+        }
     }
 }

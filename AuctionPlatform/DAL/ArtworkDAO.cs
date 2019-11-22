@@ -109,7 +109,7 @@ namespace AuctionPlatform.DAL
                 Artwork_code = sdr.GetString(0),
                 Artwork_name = sdr.GetString(1),
                 ArtWork_url = sdr.GetString(2),
-                Price = sdr.GetDouble(3),
+                Price = sdr.GetInt32(3),
                 Provider = sdr.GetString(4),
                 Arrive_time = sdr.GetDateTime(5),
                 Auction_time = sdr.IsDBNull(6) ? new DateTime() : sdr.GetDateTime(6)

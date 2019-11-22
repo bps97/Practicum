@@ -14,7 +14,7 @@ CREATE TABLE artwork (
   artwork_code varchar(24) NOT NULL,
   artwork_name varchar(255) NOT NULL,
   artwork_url varchar(255),
-  price float DEFAULT 1.00,
+  price Integer DEFAULT 1.00,
   provider varchar(255) NOT NULL,
   arrive_time date NOT NULL,
   auction_time date DEFAULT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE _order (
   order_code varchar(24) DEFAULT NULL,
   artwork_code varchar(24) NOT NULL,
   buyer_id varchar(20) NOT NULL,
-  final_price float NOT NULL,
+  final_price Integer NOT NULL,
   order_time datetime NOT NULL,
   PRIMARY KEY (buyer_id,artwork_code),
   CONSTRAINT fk_order_artworkcode_inartwork FOREIGN KEY (artwork_code) REFERENCES artwork (artwork_code),
@@ -34,8 +34,8 @@ CREATE TABLE _order (
 CREATE TABLE bid (
   bidder_id varchar(20) NOT NULL,
   artwork_code varchar(24) NOT NULL,
-  bid_price float NOT NULL,
-  PRIMARY KEY (bidder_id,artwork_code),
+  bid_price Integer NOT NULL,
+  PRIMARY KEY (bidder_id,artwork_code,bid_price),
   CONSTRAINT fk_bid_artworkcode_inartwork FOREIGN KEY (artwork_code) REFERENCES artwork (artwork_code),
   CONSTRAINT fk_bid_bidderid_inbid FOREIGN KEY (bidder_id) REFERENCES _user (user_id)
 ) 

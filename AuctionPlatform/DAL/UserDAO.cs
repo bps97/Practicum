@@ -39,6 +39,22 @@ namespace AuctionPlatform.DAL
             return null;
         }
 
+        public string GetUserID(string email)
+        {
+            con.Open();
+            string sql = string.Format("select user_id from _user where email = '{0}'", email);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sdr = cmd.ExecuteReader();
+            string temp = null;
+            if (sdr.Read())
+            {
+                temp = sdr.GetString(0);
+            }
+            con.Close();
+            return temp;
+            
+        }
+
         public bool InsertIntoUser(User user)
         {
             try

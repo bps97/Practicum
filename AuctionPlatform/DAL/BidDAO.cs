@@ -1,36 +1,43 @@
-﻿//using AuctionPlatform.Model;
-//using System;
-//using System.Collections.Generic;
-//using System.Data.SqlClient;
-//using System.Linq;
-//using System.Web;
+﻿using AuctionPlatform.Model;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
 
-//namespace AuctionPlatform.DAL
-//{
-//    public class BidDAO
-//    {
-//        private SqlConnection con = ConnectDB.Connect();
+namespace AuctionPlatform.DAL
+{
+    public class BidDAO
+    {
+        private SqlConnection con = ConnectDB.Connect();
 
-//        public double InsertNewBid(Bid bid)
-//        {
-//            con.Open();
+        public void InsertNewBid(Bid bid)
+        {
+            con.Open();
 
-//            SqlCommand cmd = new SqlCommand("insert into bid values, con);
-//            SqlDataReader sdr = cmd.ExecuteReader();
-//            if (sdr.Read())
-//            {
-//                return new User()
-//                {
-//                    User_id = sdr.GetString(0),
-//                    Username = sdr.GetString(1),
-//                    Email = Email,
-//                    Pwd = sdr.GetString(3)
-//                };
-//            }
+            string sql = string.Format("insert into bid values ({0},{1},{2})", bid.Bidder_id, bid.Artwork_code, bid.Bid_price);
+            SqlCommand cmd = new SqlCommand(sql,con);
+            SqlDataReader sdr = cmd.ExecuteReader();
 
-//            return 0.0;
 
-//        }
+            return;
 
-//    }
-//}
+        }
+
+        internal void CreateNewBid(Bid bid)
+        {
+            con.Open();
+            string sql = InsertSql(bid);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            return;
+        }
+
+        private string InsertSql(Bid bid)
+        {
+            return string.Format("" +
+                "insert into bid values ({0},{1},{2})", bid.Bidder_id, bid.Artwork_code, bid.Bid_price);
+        }
+    }
+}

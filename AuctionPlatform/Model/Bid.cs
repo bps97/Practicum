@@ -9,6 +9,6 @@ namespace AuctionPlatform.Model
     {
         public string Bidder_id { get; set; }
         public string Artwork_code { get; set; }
-        public double Bid_price { get; set; }
+        public int Bid_price { get; set; }
     }
 }
