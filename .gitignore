@@ -1,5 +1,5 @@
-
-BpsPusher/Debug/*
-BpsPusher/Debug/BpsPusher.exe
-BpsPusher/Debug/BpsPusher.ilk
-BpsPusher/Debug/BpsPusher.pdb
+*/Debug/*
+*/x64/*
+BpsPusher/BpsPusher/x64/*
+BpsPusher/BpsPusher/Debug/*
+BpsPusher/UpgradeLog.htm
