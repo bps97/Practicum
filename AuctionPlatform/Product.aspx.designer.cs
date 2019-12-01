@@ -49,15 +49,6 @@ namespace AuctionPlatform {
         protected global::System.Web.UI.WebControls.Label ArtInfo;
         
         /// <summary>
-        /// PlayerCount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PlayerCount;
-        
-        /// <summary>
         /// WatcherCount 控件。
         /// </summary>
         /// <remarks>
@@ -85,15 +76,6 @@ namespace AuctionPlatform {
         protected global::System.Web.UI.WebControls.Label CurrentPrice;
         
         /// <summary>
-        /// DiffPrice 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DiffPrice;
-        
-        /// <summary>
         /// BidPrice 控件。
         /// </summary>
         /// <remarks>
@@ -103,6 +85,15 @@ namespace AuctionPlatform {
         protected global::System.Web.UI.WebControls.TextBox BidPrice;
         
         /// <summary>
+        /// DiffPrice 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DiffPrice;
+        
+        /// <summary>
         /// BidBtn 控件。
         /// </summary>
         /// <remarks>
@@ -110,5 +101,23 @@ namespace AuctionPlatform {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BidBtn;
+        
+        /// <summary>
+        /// GridView1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// DataSource 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DataSource;
     }
 }

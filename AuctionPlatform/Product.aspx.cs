@@ -63,25 +63,37 @@ namespace AuctionPlatform
 
         protected void BidBtn_Click(object sender, EventArgs e)
         {
-            string email = Session["LoginCode"].ToString();
-
-            if (Session["LoginCode"] == null || email.Equals(""))
+            if(Session["LoginCode"] != null)
             {
-                Response.Redirect("Login");
+                string email = Session["LoginCode"].ToString();
+                if (email.Equals(""))
+                {
+                    Response.Redirect("Login");
+                }
+                else
+                {
+                    String userID = userSercice.GetUserID(email);
+
+                    string price = Request.QueryString["BidPrice"];
+
+                    Response.Write(userID);
+
+                    Bid bid = new Bid()
+                    {
+                        Bidder_id = userID,
+                        Artwork_code = artCode,
+                        Bid_price = int.Parse(price)
+                    };
+
+                    bidService.AddNewBid(bid);
+                }
             }
             else
             {
-                String userID = userSercice.GetUserID(email);
-
-                Bid bid = new Bid()
-                {
-                    Bidder_id = userID,
-                    Artwork_code = artCode,
-                    Bid_price = int.Parse(BidPrice.Text)
-                };
-
-                bidService.AddNewBid(bid);
+                Response.Redirect("Login");
             }
+
+           
         }
     }
 }

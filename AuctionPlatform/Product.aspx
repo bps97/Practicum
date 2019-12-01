@@ -19,6 +19,15 @@
     <link rel="stylesheet" href="/Content/product.css"/>
 
 
+    <style type="text/css">
+        .auto-style1 {
+            border-collapse: collapse;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+
+
 </head>
     
 <body>
@@ -32,6 +41,7 @@
                 <span class="mark">></span>
                 <span>杨静荣老师推荐双十一官窑瓷器专场</span>
             </div>
+
             <div class="primary" id="j-auction-info">
                 <div class="p-img fl">
                     <asp:Image ID="ArtImg" ImageUrl="imageurl" runat="server" CssClass="j-lazyload" />
@@ -44,59 +54,71 @@
                         </div>
                     </div>
                 </div>
-
-               <div class="primary-info" style="height: 400px">
-                    <div class="two-line" style="-webkit-box-orient: vertical;">
+                <div class="primary-info" style="height: 400px">
+                    <h2 class="two-line" style="-webkit-box-orient: vertical;">
                         <asp:Label Text="正在拍" runat="server" ID="Status" CssClass="badge" />
-                        <asp:Label ID="ArtInfo" Text="杨静荣老师推荐双十一官窑瓷器专场" runat="server" CssClass="info=name" style="font-size: x-large" />
-                    </div>
+
+                        <%--<span class="badge">预展中</span>--%>
+                        <asp:Label ID="ArtInfo" Text="杨静荣老师推荐双十一官窑瓷器专场" runat="server" CssClass="info-name"  />
+
+                        <div class="self-support-box">
+                            <!-- <span class="self-support">自营</span> -->
+                        </div>
+                    </h2>
 
                     <div class="f-s-20 info">
-                        <span class="bit-count">出价数 <b>
-                            <asp:Label Text="2" ID="PlayerCount" runat="server" /></b></span>
-                        <span class="watch-num">围观数<b>
-                            <asp:Label Text="465465" ID="WatcherCount" runat="server" /></b>
+                        <span class="watch-num">围观数
+                            <asp:Label Text="465465" ID="WatcherCount" runat="server" />
                         </span>
                     </div>
-
-
-
                     <div class="status">
-
                         <div class="status-text">
                             <asp:Label Text="0s" runat="server" ID="EndTime" CssClass="f-s-16" />
                         </div>
-
                     </div>
                     <div class="price">
                         <div class="two" style="background-color: #fafafa;">
-                            <div class="price-name" style="padding: 0;">当前价格</div>
                             <asp:Label ID="CurrentPrice" Text="2000" Style="font-size: 36px; padding: 0; color: #c51e3a;" runat="server" CssClass="price-value" />
                         </div>
-                        <div class="option">
-                            <div class="f1">
-                                竞价阶梯：
-                        <asp:Label Text="1000" runat="server" ID="DiffPrice" />
-                            </div>
+                    </div>
+                    <div class="number" style="width:300px">
+                        <span class="minus">
+                            <img src="/Content/img/01.png" alt="" style="width: 100%; height: 100%;"/></span>
+                        <asp:TextBox ID="BidPrice" runat="server" >1</asp:TextBox>
+
+                        <span class="plus">
+                            <img src="/Content/img/02.png" alt="" style="width: 100%; height: 100%;"/></span>
+                    </div>
+                    <div class="option">
+                        <div class="f1">竞价阶梯：                        
+                            <asp:Label Text="1000" runat="server" ID="DiffPrice" />
                         </div>
                     </div>
-                    <div class="number">
-                        <span class="minus">
-                            <img src="Content/img/01.png" alt="" style="width: 100%; height: 100%;" />
-                        </span>
-                        <asp:TextBox ID="BidPrice" runat="server">1</asp:TextBox>
-                        <span class="plus">
-                            <img src="Content/img/02.png" alt="" style="width: 100%; height: 100%;" />
-                        </span>
-                    </div>
+                    <div class="pay" style="height: 40px; margin-left: 200px; margin-top: 10px;">
+                                            <asp:Button Text="立刻投拍" ID="BidBtn" runat="server" CssClass="button-submit red" OnClick="BidBtn_Click" />
 
-                    <asp:Button Text="立刻投拍" ID="BidBtn" runat="server" CssClass="button-submit red" OnClick="BidBtn_Click" />
-                    <div class="prices">
-                        <span value="1000" class="badge">1k</span>
-                        <span value="5000" class="badge">5k</span>
-                        <span value="10000" class="badge">10k</span>
                     </div>
+                    <div class="prices">
+                        <span value="1000" class="badge" style="background-color:#c51e3a">+1k</span>
+                        <span value="5000" class="badge" style="background-color:#c51e3a">+5k</span>
+                        <span value="10000" class="badge" style="background-color:#c51e3a">+10k</span>
+                    </div>
+                    <div style="margin-left: 400px; width: 100px; height: 150px; margin-top: -80px;">
+                        
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="DataSource" PageSize="5" CssClass="table table-condensed" Width="119px" BorderStyle="None" sytle="border:0px;" CellPadding="0">
+                            <Columns>
+                                <asp:BoundField DataField="用户" HeaderText="用户" SortExpression="用户" />
+                                <asp:BoundField DataField="出价" HeaderText="出价" SortExpression="出价" />
+                            </Columns>
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="DataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseConnection %>" SelectCommand="SELECT _user.username AS 用户, bid.bid_price AS 出价 FROM bid INNER JOIN _user ON bid.bidder_id = _user.user_id"></asp:SqlDataSource>
+                        
+                        </div>
                 </div>
+                
+   
+
+
                 <%--1213456--%>
             </div>
 
