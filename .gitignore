@@ -1,3 +1,7 @@
+AuctionPlatform/.vs/*
+AuctionPlatform/packages/*
+
+SeatChoose/.idea/*
 */Debug/*
 */x64/*
 BpsPusher/BpsPusher/x64/*

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Practicum
-Practicum
-=======
-## ASP.NET WebForm	about AuctionPlatform
 
-ASP.net 窗体的项目
->>>>>>> asp
+Practicum
+在学校写的一些小东西
