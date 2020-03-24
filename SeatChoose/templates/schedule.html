@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+{#	<meta charset="UTF-8">#}
+
+	<title>ECharts map Demo</title>
+	<script src="/js/echarts.min.js"></script>
+	<style>
+        #china-map {width:560px; height: 400px;margin: auto;}
+        {#body{width:400px; height: 400px;}#}
+    </style>
+</head>
+<body>
+
+	<span id="china-map" >
+		<!-- 这里以后是地图 -->
+	</span>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('china-map'));
+        option = {
+		    tooltip: {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b}: {c} ({d}%)"
+		    },
+            legend: {
+                orient: 'vertical',
+                x: 'left'
+		    },
+		    series: [
+		        {
+		            type:'pie',
+		            radius: ['95%', '97%'],
+                    center:['58%','50%'],
+		            avoidLabelOverlap: false,
+		            label: {
+		                normal: {
+		                    show: false,
+		                    position: 'center'
+		                },
+		                emphasis: {
+		                    show: true,
+		                    textStyle: {
+		                        fontSize: '30',
+		                        fontWeight: 'bold'
+		                    }
+		                }
+		            },
+		            labelLine: {
+		                normal: {
+		                    show: false
+		                },
+		                lineStyle: {
+				            color: 'rgba(255, 255, 255, 0.3)'
+				        }
+		            },
+					// color:['gray'],
+		            data:[
+                        {value:43200,name:'00:00-11:59\n上半天'},
+                        {value:43200,name:'12:00-23:59\n下半天'},
+                    ]
+		        },
+		        {
+		            name:'访问来源',
+		            type:'pie',
+		            radius: ['64%', '80%'],
+                    center:['58%','50%'],
+		            avoidLabelOverlap: false,
+		            label: {
+		                normal: {
+		                    show: false,
+		                    position: 'center'
+		                },
+		                emphasis: {
+		                    show: true,
+		                    textStyle: {
+		                        fontSize: '30',
+		                        fontWeight: 'bold'
+		                    }
+		                }
+		            },
+		            labelLine: {
+		                normal: {
+		                    show: false
+		                },
+		                lineStyle: {
+				            color: 'rgba(255, 255, 255, 0.3)'
+				        }
+		            },
+					// color:['gray'],
+		            data:{{ result|safe }}
+		        },
+
+		    ]
+		};
+
+         myChart.setOption(option);
+	</script>
+</body>

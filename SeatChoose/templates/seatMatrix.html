@@ -1,0 +1,33 @@
+{% macro judge(status) %}{% if status == 1 %}btn-info{% elif status == 2 %}btn-warning{% elif status == 3 %}btn-danger{% else %}btn-muted{% endif %}{% endmacro%}
+{% macro matrix(seats) %}
+<div class="col-md-10 col-md-offset-4">
+{% for s in seats %}
+<div class="row">
+{% for row in s %}
+<div class="btn-group">
+<div class="btn-group-vertical">
+<button class="btn btn-seat btn-mysize-{{ row[0].type }} {{ judge(row[0].status) }} btn-sm" id="{{ row[0].code }}">{{ row[0].code }}</button>
+<button class="btn btn-seat btn-mysize-{{ row[2].type }} {{ judge(row[2].status) }} btn-sm" id="{{ row[2].code }}">{{ row[2].code }}</button>
+</div>
+<div class="btn-group-vertical" style="right:4px">
+<button class="btn btn-seat btn-mysize-{{ row[1].type }} {{ judge(row[1].status) }} btn-sm" id="{{ row[1].code }}">{{ row[1].code }}</button>
+<button class="btn btn-seat btn-mysize-{{ row[3].type }} {{ judge(row[3].status) }} btn-sm" id="{{ row[3].code }}">{{ row[3].code }}</button>
+</div>
+</div>
+{% endfor %}
+</div>
+<br>
+{% endfor %}
+</div>
+<script src="/js/customJS/matrixView.js"></script>
+{% endmacro %}
+
+
+
+{% for pos in positions %}
+<li><a href="/choose/{{ pos.id }}" id="pos_{{ pos.id }}" class="matrix">{{ pos.floor+''+ pos.zone }}</a></li>
+{% if positions[pos.id] and positions[pos.id-1].floor != positions[pos.id].floor %}
+<li role="presentation" class="divider"></li>
+{% endif %}
+{% endfor %}
+

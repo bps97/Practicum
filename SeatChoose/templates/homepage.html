@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<div class="jumbotron">
+  <h3>使用注意事项</h3>
+    <hr>
+  <p>选座的开始时间范围为(6:00-22:00) 前提是本人要在图书馆内 预约的开始时间范围为(6:00-19:00)</p>
+  <p>选座功能：</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可选位置：&nbsp;1 任意空位子&nbsp;2 满足某些条件的被预约座位</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注信息：&nbsp;对于已经被他人预约的座位但还未正式被使用的座位，可以有如下操作：</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 如果该位置的预约开始时间在3小时内
+	  那么你就能使用该座位一直到下一个使用者到来</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 如果该位置的预约开始时间在3小时以上 那么你就能正常占用该位置</p>
+  <p>选座功能：</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可选位置：&nbsp;1 任意空位子&nbsp;2 满足某些条件的被占用或预约座位</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注信息：&nbsp;对于已经被他人预约的座位但还未正式被使用的座位，可以有如下操作：</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 已被使用的位置只能在其结束后的3-3.5小时内预约</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 已被预约的位置只能在其结束后的0.5小时内预约 或 在其开始前</p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 暂时离开的位置只能在其结束后的3-3.5小时内预约</p>
+  <p><a class="btn btn-danger btn-lg" href="#" role="button">回到开头</a></p>
+</div>
+
+{% endblock %}
+
+{% block script_content %}
+<script>
+    $(document).ready(function () {
+        $('.matrix').click(function () {
+            pos =$(this).attr('id').substr(4);
+            $(location).attr('href', '/choose/'+pos);
+        })
+    });
+</script>
+{% endblock %}
